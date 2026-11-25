@@ -1,0 +1,33 @@
+# Builds FET Compressor for both MPC CPUs with OpenMPC's reusable workflow and attaches the release zips
+# to a DRAFT GitHub release (tag v<version>). Install the draft's zip on an MPC, check it, then publish the
+# draft (that creates the tag). Docs: https://open-mpc.github.io/workflow.html and
+# https://github.com/open-mpc/mpc-vst-plugins/blob/main/docs/RELEASING.md ("Releasing from CI").
+#
+# Keep the two pins below on the SAME open-mpc/mpc-vst-plugins commit, and move them to its current main
+# before every release (the installer templates and release checks come from that commit).
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version, X.Y.Z (must match plugin.json)
+        required: true
+      dry_run:
+        description: Build and package only (zips as run artifacts), no draft release
+        type: boolean
+        default: true
+
+jobs:
+  release:
+    uses: open-mpc/mpc-vst-plugins/.github/workflows/vst-release.yml@1b78cfa38e703d98fa7514dd91bd25d72f2963ad
+    permissions: { contents: write }
+    with:
+      tools_ref: 1b78cfa38e703d98fa7514dd91bd25d72f2963ad
+      tag: v${{ inputs.version }}
+      version: ${{ inputs.version }}
+      sdk_project: .
+      plugin_id: segeda-fet-compressor
+      license: MIT
+      about: Classic FET-style peak compressor with an analog VU meter, 4/8/12/20:1 and all-buttons mode, colour, parallel mix, sidechain HPF and a variety of presets for vocals, drums, bass, guitar, keys and synths.
+      dry_run: ${{ inputs.dry_run }}

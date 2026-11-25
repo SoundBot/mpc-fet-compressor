@@ -1,0 +1,17 @@
+{
+  "name": "FET Compressor",
+  "manufacturer": "Segeda",
+  "version": "1.4.1",
+  "format": "vst2",
+  "kind": "effect",
+  "uid": "EGVo",
+  "numInputs": 2,
+  "numOutputs": 2,
+  "category": "Effect",
+  "file32": "VST/fet-compressor-arm32.so",
+  "file64": "VST/fet-compressor-arm64.so",
+  "description": "Classic FET-style peak compressor with an analog VU meter, 4/8/12/20:1 and all-buttons mode, colour, parallel mix, sidechain HPF and a variety of presets for vocals, drums, bass, guitar, keys and synths.",
+  "author": "Segeda",
+  "url": "https://github.com/SoundBot/mpc-fet-compressor",
+  "license": "MIT"
+}
