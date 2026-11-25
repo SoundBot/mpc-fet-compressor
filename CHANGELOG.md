@@ -10,3 +10,4 @@
 - A Default preset plus 25 presets for vocals, drums, bass, guitar, keys, synths and the mix bus,
   measured on material peaking at −6 dBFS.
 - Choosing a preset updates the knobs on the MPC screen, with any SDK version.
+- Tested on an MPC Live III (Gen2), MPC OS 3.10.1.12. The 32-bit (Gen1) build is untested on hardware.

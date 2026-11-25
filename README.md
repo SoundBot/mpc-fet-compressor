@@ -80,8 +80,13 @@ needle position with VU-style ballistics. A small background thread copies it in
 parameter about 30 times a second, only while the needle moves, and tells the MPC that the
 value changed so the screen redraws.
 
-**Not yet verified on hardware.** The rest of the plugin uses standard features. If the needle
-doesn't move on your MPC, the compressor still works normally. See "Limits".
+Tested on an MPC Live III running MPC OS 3.10.1: the needle follows the gain reduction live.
+
+How close the reading is, measured on steady tones: within about 0.3 dB up to 10 dB of gain
+reduction, and within about 1 dB up to 20 dB (a VU scale packs its left end together). Beyond
+20 dB it rests on the left stop, where the scale ends. Like a real VU meter it is smoothed
+(about 45 ms), so a single fast hit reads lower than its true peak reduction. In **All Buttons**
+mode the needle swings further than the real reduction on purpose, as on the hardware.
 
 ## Editing the skin
 
@@ -117,7 +122,7 @@ choosing a preset doesn't update the MPC's screen.
 - The meter relies on the MPC redrawing a parameter that the plugin changes itself. If a
   future MPC OS stops redrawing it, the needle stays still and the sound is unaffected.
 - The needle moves in 48 steps and updates at up to 30 frames a second, and the meter image
-  uses about 25 MB of memory on the MPC.
+  uses about 12 MB of memory on the MPC.
 - It is a feed-forward design, not a circuit model: it captures the behaviour (fast peak
   detection, ratio-dependent threshold and knee, all-buttons over-compression, FET colour),
   not every quirk. Release is not program-dependent like the hardware's.
