@@ -1,4 +1,4 @@
-# FET Compressor (Segeda)
+# MPC FET Compressor
 
 A classic FET-style peak compressor for MPC standalone. It's fast, punchy and a bit dirty when
 pushed, and it has a backlit **analog VU meter** whose needle swings with the gain reduction,
